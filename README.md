@@ -54,6 +54,11 @@ dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=
 
 Change the runtime identifier as needed for another target platform, such as `linux-x64` or `osx-arm64`. Published output is written beneath `bin/Release/net6.0/<runtime-id>/publish/`.
 
+## GitHub Actions
+
+- **CI** runs on pushes to any branch, pull requests, or manual dispatch. It restores and builds the project on Windows, Linux, and macOS.
+- **Publish Releases** runs when a `v*` tag is pushed, or when manually dispatched. It creates self-contained ZIP packages for Windows x64, Linux x64, and macOS ARM64. Tag pushes also create a GitHub Release and attach all three packages; manual runs upload the packages as workflow artifacts.
+
 ## Metadata affected
 
 - **ID3v2:** removes `PRIV`, `TXXX`, and `POPM` frames, plus `COMM` frames and other frame text that contain the indicated iTunes markers.
