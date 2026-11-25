@@ -2,6 +2,10 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
+using System.Text;
+// prevent skipping folder with unicode character
+Console.InputEncoding = new UTF8Encoding(false);
+Console.OutputEncoding = new UTF8Encoding(false);
 
 Console.WriteLine("============================================================");
 Console.WriteLine("  AUDIO METADATA PURGE TOOL (C# Cross-Platform Edition)");
